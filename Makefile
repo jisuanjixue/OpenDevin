@@ -14,15 +14,15 @@ build:
 	@echo "Pulling Docker image..."
 	@docker pull $(DOCKER_IMAGE)
 	@echo "Installing Python dependencies..."
-	@python -m pip install pipenv
-	@python -m pipenv install -v
+	@python3 -m pip install pipenv
+	@python3 -m pipenv install -v
 	@echo "Setting up frontend environment..."
 	@cd frontend && npm install
 
 # Start backend
 start-backend:
 	@echo "Starting backend..."
-	@python -m pipenv run uvicorn opendevin.server.listen:app --port $(BACKEND_PORT)
+	@python3 -m pipenv run uvicorn opendevin.server.listen:app --port $(BACKEND_PORT)
 
 # Start frontend
 start-frontend:
